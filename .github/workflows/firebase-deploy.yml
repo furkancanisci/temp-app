@@ -1,0 +1,32 @@
+name: Firebase Deploy
+
+on:
+  push:
+    branches:
+      - main # Deploy işlemi sadece `main` branch'e push yapıldığında çalışır
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Projenizin Node.js sürümüne uygun bir sürüm seçin
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Project
+      run: npm run build
+
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@v2.2.1
+      with:
+        args: deploy
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
