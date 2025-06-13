@@ -101,8 +101,9 @@ const categoriesData = {
       { id: "understanding-quantum-computing-basics", title: "Understanding Quantum Computing Basics", description: "A simplified introduction to the complex world of quantum computing.", image: "https://placehold.co/150x100/D0D0D0/333333?text=Quantum+Comp" },
       { id: "ethical-ai-a-developers-perspective", title: "Ethical AI: A Developer's Perspective", description: "Navigating the ethical challenges in AI development.", image: "https://placehold.co/150x100/C0C0C0/333333?text=Ethical+AI" }
     ],
-    articles: [
+    articles: [      
       { id: "top-5-programming-languages-to-learn-in-2025", title: "Top 5 Programming Languages to Learn in 2025", description: "A look at the most in-demand languages.", image: "https://placehold.co/150x100/B0B0B0/333333?text=Top+Languages" },
+      { id: "ai-transforming-data-center-energy", title: "AI is Transforming Data Center Energy Consumption: New Generation Smart Cooling Systems Undergo Global Tests", description: "As global digitalization continues its unceasing pace, data center energy consumption is becoming an increasingly critical issue in terms of environmental sustainability and operational costs. The cooling of these centers, in particular, constitutes a significant portion of their total energy expenditure. However, recent developments indicate that artificial intelligence (AI) is offering revolutionary solutions in this domain. Pilot projects and large-scale tests conducted over the past few years have demonstrated that AI-powered smart cooling systems can dramatically reduce the energy footprint of data centers. Unlike traditional fixed-setting cooling solutions, these next-generation systems utilize machine learning algorithms to analyze real-time data, including server load, internal/external temperatures, humidity, and even energy prices. Based on this analysis, AI precisely predicts the data center's optimal cooling needs and dynamically adjusts cooling systems. Industry analysts predict that AI-based smart cooling systems will become a standard component of data centers within the next 5 years.", image: "https://example.com/ai-data-center-cooling.jpg", categoryId: "technology" },
       { id: "the-future-of-low-code-no-code-platforms", title: "Low-Code/No-Code Platforms: The Future of Development?", description: "Impact on traditional software development.", image: "https://placehold.co/150x100/A0A0A0/333333?text=LowCode" },
       { id: "demystifying-blockchain-for-developers", title: "Demystifying Blockchain for Developers", description: "A guide to understanding blockchain technology.", image: "https://placehold.co/150x100/909090/333333?text=Blockchain" }
     ]
@@ -1362,33 +1363,28 @@ const ContactPage = () => {
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto"> {/* Rounded corners and shadow */}
       <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center font-space-grotesk">Contact Us</h1>
-      <p className="text-base leading-relaxed mb-6 text-gray-700">
-        Have a question, suggestion, or just want to say hello? Feel free to reach out to us using the form below or directly via email. We would love to hear from you!
-      </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+          <label htmlFor="contactName" className="block text-gray-700 text-sm font-bold mb-2">
             Name
           </label>
           <input
             type="text"
-            id="name"
-            name="name"
+            id="contactName"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="shadow-sm appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-blue-500 focus:border-blue-500"
-            placeholder="John Doe"
+            placeholder="Your Name"
             required
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+          <label htmlFor="contactEmail" className="block text-gray-700 text-sm font-bold mb-2">
             Email
           </label>
           <input
             type="email"
-            id="email"
-            name="email"
+            id="contactEmail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="shadow-sm appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-blue-500 focus:border-blue-500"
@@ -1397,33 +1393,31 @@ const ContactPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
+          <label htmlFor="contactMessage" className="block text-gray-700 text-sm font-bold mb-2">
             Message
           </label>
           <textarea
-            id="message"
-            value={message} // Bind value to state
-            onChange={(e) => setMessage(e.target.value)} // Update state on change
-            rows="5"
+            id="contactMessage"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows="4"
             className="shadow-sm appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Write your message here..."
+            placeholder="Your message..."
             required
           ></textarea>
         </div>
-        {/* Send Message button in new style */}
-        <button
-          type="submit"
-          className="px-6 py-2 rounded-md text-white font-semibold tracking-wide
-                     bg-gradient-to-r from-blue-600 to-blue-800
-                     hover:from-blue-700 hover:to-blue-900
-                     shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
-        >
-          Send Message
-        </button>
+        <div className="text-center">
+          <button
+            type="submit"
+            className="px-8 py-3 rounded-md text-white font-semibold tracking-wide
+                       bg-gradient-to-r from-blue-600 to-blue-800
+                       hover:from-blue-700 hover:to-blue-900
+                       shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
+          >
+            Send Message
+          </button>
+        </div>
       </form>
-      <p className="text-gray-600 text-sm mt-6">
-        You can also reach us directly at: <a href="mailto:contact@techpathfinder.com" className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">contact@techpathfinder.com</a>
-      </p>
     </div>
   );
 };
@@ -2499,7 +2493,7 @@ const ArticleListPage = ({ articles, setCurrentPage }) => {
   );
 };
 
-// Adding the new article to the articlesData array
+// Adding the new article to the allArticlesData array
 allArticlesData.push({
   id: "ai-transforming-data-center-energy", // Unique ID for the article
   title: "AI is Transforming Data Center Energy Consumption: New Generation Smart Cooling Systems Undergo Global Tests",
