@@ -169,12 +169,11 @@ const getAllArticles = () => {
 const allArticlesData = getAllArticles(); // Used as static article data
 
 // Static Author Data
-const authorData = {
-  'john-doe': {
-    id: 'john-doe',
-    name: 'John Doe',
-    bio: 'John Doe is a Senior Software Engineer with over 10 years of experience in full-stack web development, data science, and cloud architecture. He is passionate about simplifying complex technical concepts and helping aspiring developers kickstart their careers. John has a strong background in Python, JavaScript, and various cloud platforms, and he enjoys sharing his insights on effective learning strategies and career growth in tech.',
-    image: 'https://placehold.co/150x150/E0E0E0/333333?text=John+Doe',
+const authorData = {  'furkan-can-isci': {
+    id: 'furkan-can-isci',
+    name: 'Furkan Can İşci',
+    bio: 'Furkan Can İşci is a Senior Software Engineer with over 10 years of experience in full-stack web development, data science, and cloud architecture. He is passionate about simplifying complex technical concepts and helping aspiring developers kickstart their careers. Furkan has a strong background in Python, JavaScript, and various cloud platforms, and he enjoys sharing his insights on effective learning strategies and career growth in tech.',
+    image: 'https://placehold.co/150x150/E0E0E0/333333?text=Furkan+Can+İşci',
     // Filter articles that could be written by John Doe
     articles: allArticlesData.filter(article =>
       ['python-for-everybody-coursera-review', 'full-stack-javascript-udemy-guide', 'frontend-developer-roadmap', 'backend-engineer-journey', 'the-rise-of-webassembly-in-web-dev', 'understanding-quantum-computing-basics', 'ethical-ai-a-developers-perspective'].includes(article.id)
@@ -799,8 +798,8 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
     );
   }
 
-  // Find the author of the article (for now, assuming John Doe is the author of all static articles)
-  const articleAuthor = authorData['john-doe']; // For now, author of all articles is assumed to be John Doe
+  // Find the author of the article (Furkan Can İşci is the author of all static articles)
+  const articleAuthor = authorData['furkan-can-isci']; // Author of all articles is Furkan Can İşci
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col lg:flex-row lg:space-x-8"> {/* Rounded corners and shadow */}
@@ -819,37 +818,7 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
   
 
         {/* Article Content - For now using description, but in real app, this would be full HTML/Markdown content */}
-        <p className="text-lg leading-relaxed mb-6 text-gray-700"> {/* Text color adjusted */}
-          {article.description} This article delves into the intricacies of the topic, providing readers with a thorough understanding and practical takeaways. It explores key concepts, challenges, and solutions, making it a valuable resource for anyone looking to deepen their knowledge and apply it effectively in real-world scenarios.
-          <br/><br/>
-          This section can contain code snippets, images, videos, and more.
-        </p>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 font-space-grotesk">More Details on "{article.title}"</h2> {/* Font Space Grotesk */}
-        <p className="text-base leading-relaxed mb-6 text-gray-700">
-          Here you can expand on specific sub-topics related to the article. For example, if this is about Python for Data Science, you might have sections on advanced Pandas, machine learning model building, or deployment strategies.
-        </p>
-        <pre className="bg-gray-800 text-white p-4 rounded-xl text-sm overflow-x-auto mb-6 shadow-md"> {/* Rounded corners and shadow */}
-          <code className="language-python">
-{`# Sample code snippet for ${article.title}
-def example_function():
-    print("This is a code example related to the article.")
-    return "Success!"
-
-result = example_function()
-print(result)
-`}
-          </code>
-        </pre>
-        <h3 className="text-xl font-bold text-gray-800 mb-3 mt-5 font-space-grotesk">Subtopic 1: In-Depth Look</h3> {/* Font Space Grotesk */}
-        <p className="text-base leading-relaxed mb-4 text-gray-700">
-          Detailed explanation of the first subtopic. This is where you will provide the core value and expertise to the reader.
-        </p>
-        <h3 className="text-xl font-bold text-gray-800 mb-3 mt-5 font-space-grotesk">Subtopic 2: Practical Applications</h3> {/* Font Space Grotesk */}
-        <p className="text-base leading-relaxed mb-6 text-gray-700">
-          Discuss real-world applications or propose a small project idea related to the theme of the article.
-        </p>
-
-
+       
         {/* AdSense In-Article Ad Placeholder */}
   
 
@@ -1212,7 +1181,7 @@ const RegisterPage = ({ setCurrentPage }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="shadow-sm appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-blue-500 focus:border-blue-500"
-            placeholder="John Doe"
+            placeholder="Furkan Can İşci"
             required
           />
         </div>
