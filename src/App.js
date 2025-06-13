@@ -510,162 +510,223 @@ const HomePage = ({ setCurrentPage, isLoggedIn, userInterests }) => {
     userInterests.includes(article.categoryId)
   );
 
-  // Get featured articles from each category
-  const featuredArticles = Object.keys(categoriesData).map(categoryId => {
-    const category = categoriesData[categoryId];
-    return category.featuredCourses?.[0] || category.articles?.[0];
-  }).filter(Boolean);
-
-  // Get latest blog posts
-  const latestBlogPosts = categoriesData.blog.articles.slice(0, 3);
-
-  // Get trending articles (for this example, we'll use the first article from technology and ai-tech categories)
-  const trendingArticles = [
-    categoriesData.technology.articles[0],
-    categoriesData['ai-tech'].articles[0]
-  ].filter(Boolean);
-
   return (
-    <div className="space-y-12">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 rounded-2xl overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Your Journey to Tech Excellence Starts Here
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Discover comprehensive guides, courses, and success stories to help you master software development.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => setCurrentPage({ type: 'category', id: 'bootcamps' })}
-                className="px-8 py-3 bg-white text-blue-700 rounded-full font-semibold hover:bg-blue-50 transition duration-300"
-              >
-                Explore Bootcamps
-              </button>
-              <button
-                onClick={() => setCurrentPage({ type: 'category', id: 'online-courses' })}
-                className="px-8 py-3 bg-transparent border-2 border-white rounded-full font-semibold hover:bg-white hover:text-blue-700 transition duration-300"
-              >
-                Browse Courses
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute transform rotate-45 -right-20 -top-20 w-80 h-80 border-4 border-white rounded-3xl"></div>
-          <div className="absolute transform -rotate-45 -left-20 -bottom-20 w-80 h-80 border-4 border-white rounded-3xl"></div>
-        </div>
-      </section>
+    <div className="flex flex-col lg:flex-row lg:space-x-8">
+      {/* Left Sidebar (Yahoo-like) */}
+      <div className="lg:w-1/5 bg-white p-4 rounded-xl shadow-lg mb-6 lg:mb-0"> {/* Rounded corners and shadow */}
+        <h3 className="font-space-grotesk font-semibold text-lg text-gray-700 mb-4">Categories</h3>
+        <ul className="space-y-2">
+          <li><a href="#" onClick={() => setCurrentPage({ type: 'category', id: 'bootcamps' })} className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Bootcamps</a></li>
+          <li><a href="#" onClick={() => setCurrentPage({ type: 'category', id: 'online-courses' })} className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Online Courses</a></li>
+          <li><a href="#" onClick={() => setCurrentPage({ type: 'category', id: 'learning-paths' })} className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Learning Paths</a></li>
+          <li><a href="#" onClick={() => setCurrentPage({ type: 'category', id: 'success-stories' })} className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Success Stories</a></li>
+          <li><a href="#" onClick={() => setCurrentPage({ type: 'blog' })} className="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Blog</a></li>
+          {/* Other categories can be added here */}
+        </ul>
+      </div>
 
-      {/* Personalized Recommendations Section (Only shown when logged in) */}
-      {isLoggedIn && recommendedArticles.length > 0 && (
-        <section className="bg-white p-8 rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">Recommended for You</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recommendedArticles.slice(0, 3).map(article => (
-              <ArticleCard
-                key={article.id}
-                article={article}
-                onClick={() => setCurrentPage({
-                  type: 'single-post',
-                  categoryId: article.categoryId,
-                  articleId: article.id
-                })}
-              />
-            ))}
+      {/* Main Content Area */}
+      <div className="lg:w-3/5 flex-grow">
+        {/* Hero Section (Mimics Yahoo's main featured news block) */}
+        <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-2xl shadow-xl mb-8 text-center"> {/* Rounded corners and shadow */}
+          <h1 className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight font-space-grotesk tracking-tight"> {/* Font Space Grotesk */}
+            Launch Your Tech Career: Your Software Education Guide
+          </h1>
+          <p className="text-lg mb-6 max-w-2xl mx-auto opacity-90"> {/* Slight opacity effect */}
+            Find the best bootcamps, online courses, and learning paths to start coding.
+          </p>
+          <button onClick={() => setCurrentPage({ type: 'category', id: 'online-courses' })}
+                  className="px-8 py-3 rounded-full text-blue-800 font-bold tracking-wide
+                             bg-white hover:bg-blue-100
+                             shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+            Explore Courses
+          </button>
+        </section>
+
+        {/* Recommended Articles Section (PERSONALIZED) */}
+        {isLoggedIn && (
+          <section className="bg-white p-6 rounded-xl shadow-lg mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 font-space-grotesk">Recommended Articles for You</h2>
+            {userInterests.length > 0 ? (
+              recommendedArticles.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {recommendedArticles.slice(0, 3).map((article, index) => ( // Show first 3 recommendations
+                    <ArticleCard
+                      key={index}
+                      {...article}
+                      setCurrentPage={setCurrentPage}
+                      categoryId={article.categoryId}
+                      articleId={article.id}
+                      affiliateUrl={article.affiliateUrl}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-600">No articles found matching your interests. Try selecting more interests!</p>
+              )
+            ) : (
+              <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-gray-700 mb-4">Define your interests to receive personalized article recommendations.</p>
+                <button
+                  onClick={() => setCurrentPage({ type: 'set-interests' })}
+                  className="px-6 py-2 rounded-md text-white font-semibold tracking-wide
+                             bg-gradient-to-r from-blue-600 to-blue-800
+                             hover:from-blue-700 hover:to-blue-900
+                             shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
+                >
+                  Set My Interests
+                </button>
+              </div>
+            )}
+          </section>
+        )}
+
+
+        {/* Featured Section (Mimics Yahoo's smaller news card sequence) */}
+        <section className="bg-white p-6 rounded-xl shadow-lg mb-8"> {/* Rounded corners and shadow */}
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 font-space-grotesk">Featured</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Reduced to 3 columns */}
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="blog" // Example category for featured
+              articleId="top-5-ai-tools-for-developers"
+              title="Top 5 AI Tools for Developers"
+              image="https://placehold.co/200x120/F0F0F0/333333?text=AI+Tools"
+            />
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="blog"
+              articleId="the-future-of-low-code-no-code-platforms"
+              title="Future of Remote Work in Tech"
+              image="https://placehold.co/200x120/E8E8E8/333333?text=Remote+Work"
+            />
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="blog"
+              articleId="demystifying-blockchain-for-developers"
+              title="Cybersecurity Basics for Coders"
+              image="https://placehold.co/200x120/E0E0E0/333333?text=Security+Tips"
+            />
           </div>
         </section>
-      )}
 
-      {/* Featured Content Section */}
-      <section className="bg-white p-8 rounded-xl shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Featured Content</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredArticles.slice(0, 3).map(article => (
+        {/* Latest Articles Section (Single Column - Mimics Yahoo's "Stories for You") */}
+        <section className="bg-white p-6 rounded-xl shadow-lg mb-8"> {/* Rounded corners and shadow */}
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 font-space-grotesk">Latest Articles</h2>
+          <div className="grid grid-cols-1 gap-6"> {/* Single column for articles */}
             <ArticleCard
-              key={article.id}
-              article={article}
-              onClick={() => setCurrentPage({
-                type: 'single-post',
-                categoryId: article.categoryId,
-                articleId: article.id
-              })}
+              setCurrentPage={setCurrentPage}
+              categoryId="online-courses"
+              articleId="python-for-everybody-coursera-review"
+              horizontal={true} // New prop for horizontal layout
+              title="Mastering Python for Data Science"
+              description="A comprehensive guide to leveraging Python for data analysis and machine learning."
+              image="https://placehold.co/150x100/E0E0E0/333333?text=Python+Data" // Smaller image
+              affiliateUrl={categoriesData['online-courses'].featuredCourses[0].affiliateUrl} // Passing affiliate URL
             />
-          ))}
-        </div>
-      </section>
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="learning-paths"
+              articleId="frontend-developer-roadmap"
+              horizontal={true}
+              title="Frontend Developer Roadmap 2024"
+              description="Stay updated with the latest trends and essential skills for frontend developers."
+              image="https://placehold.co/150x100/D0D0D0/333333?text=Frontend+Map"
+            />
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="bootcamps"
+              articleId="full-stack-web-dev-bootcamp-review" // Now using a featured course
+              horizontal={true}
+              title="Choosing Your First Coding Bootcamp"
+              description="Factors to consider when selecting a bootcamp that fits your learning style."
+              image="https://placehold.co/150x100/B0B0B0/333333?text=Bootcamp+Choice"
+              affiliateUrl={categoriesData['bootcamps'].featuredCourses[0].affiliateUrl} // Passing affiliate URL
+            />
+          </div>
+        </section>
 
-      {/* Latest Blog Posts Section */}
-      <section className="bg-white p-8 rounded-xl shadow-lg">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Latest Blog Posts</h2>
-          <button
-            onClick={() => setCurrentPage({ type: 'blog' })}
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            View All
+        {/* Popular Guides Section - Can remain multi-column or adjustable */}
+        <section className="bg-white p-6 rounded-xl shadow-lg mb-8"> {/* Rounded corners and shadow */}
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 font-space-grotesk">Popular Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="online-courses"
+              articleId="full-stack-javascript-udemy-guide"
+              title="The Ultimate Guide to Learning JavaScript"
+              description="Everything you need to know to master JavaScript."
+              image="https://placehold.co/400x250/909090/333333?text=JavaScript+Guide"
+              affiliateUrl={categoriesData['online-courses'].featuredCourses[1].affiliateUrl} // Passing affiliate URL
+            />
+            <ArticleCard
+              setCurrentPage={setCurrentPage}
+              categoryId="learning-paths"
+              articleId="backend-engineer-journey"
+              title="Data Structures and Algorithms for Beginners"
+              description="Fundamental concepts for every aspiring software engineer."
+              image="https://placehold.co/400x250/808080/333333?text=DSA+Basics"
+            />
+          </div>
+        </section>
+      </div>
+
+      {/* Right Sidebar (Yahoo-like) */}
+      <div className="lg:w-1/5 bg-white p-4 rounded-xl shadow-lg"> {/* Rounded corners and shadow */}
+        {/* Email Subscription */}
+        <div className="mb-6 p-4 bg-blue-50 rounded-xl border border-blue-200 shadow-inner"> {/* Rounded corners, inner shadow and border */}
+          <h3 className="font-space-grotesk font-semibold text-lg text-blue-700 mb-3">Join Our Newsletter</h3>
+          <p className="text-sm text-gray-700 mb-4">Get the latest insights and course recommendations directly to your inbox!</p>
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="w-full p-2 border border-gray-300 rounded-md mb-3 text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+          {/* Newsletter Subscribe button in new style */}
+          <button className="w-full px-6 py-2 rounded-md text-white font-semibold tracking-wide
+                             bg-gradient-to-r from-blue-600 to-blue-800
+                             hover:from-blue-700 hover:to-blue-900
+                             shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105">
+            Subscribe
           </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {latestBlogPosts.map(article => (
-            <ArticleCard
-              key={article.id}
-              article={article}
-              onClick={() => setCurrentPage({
-                type: 'single-post',
-                categoryId: 'blog',
-                articleId: article.id
-              })}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Trending Topics Section */}
-      <section className="bg-white p-8 rounded-xl shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Trending in Tech</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {trendingArticles.map(article => (
-            <ArticleCard
-              key={article.id}
-              article={article}
-              onClick={() => setCurrentPage({
-                type: 'single-post',
-                categoryId: article.categoryId,
-                articleId: article.id
-              })}
-              variant="horizontal"
-            />
-          ))}
-        </div>
-      </section>
+      </div>
     </div>
   );
 };
 
-// Article Card Component
-const ArticleCard = ({ article, onClick, variant = 'vertical' }) => {
-  if (variant === 'horizontal') {
+// Article Card Component - Now supports horizontal layout, dynamic routing, and affiliate links
+const ArticleCard = ({ title, description, image, horizontal = false, setCurrentPage, categoryId, articleId, affiliateUrl }) => {
+  const handleClick = (e) => {
+    // If affiliate URL exists, open in a new tab.
+    if (affiliateUrl) {
+      window.open(affiliateUrl, '_blank', 'noopener noreferrer');
+    } else if (categoryId && articleId) {
+      setCurrentPage({ type: 'single-post', categoryId, articleId });
+    } else {
+      setCurrentPage({ type: 'single-post' }); // Fallback to static example if no specific ID
+    }
+  };
+
+  if (horizontal) {
     return (
       <div
-        onClick={onClick}
-        className="flex bg-white rounded-lg overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 cursor-pointer"
+        className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col sm:flex-row items-stretch sm:items-center hover:shadow-lg transition-shadow duration-300 cursor-pointer" // Mobile: flex-col, sm+: flex-row
+        onClick={handleClick} // Card click always triggers handleClick
       >
-        <img
-          src={article.image}
-          alt={article.title}
-          className="w-1/3 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-2">
-            {article.title}
-          </h3>
-          <p className="text-gray-600 text-sm line-clamp-2">
-            {article.description}
-          </p>
+        <img src={image} alt={title} className="w-full sm:w-2/5 h-32 object-cover flex-shrink-0 rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/150x100/CCCCCC/333333?text=Placeholder"; }}/> {/* Image height set to h-32, width adjusted */}
+        <div className="p-4 w-full sm:w-3/5 flex flex-col justify-between"> {/* Width adjusted */}
+          <h3 className="text-lg font-bold text-gray-800 mb-1 font-space-grotesk">{title}</h3> {/* Smaller title for horizontal */}
+          {description && <p className="text-gray-600 text-xs line-clamp-2">{description}</p>} {/* Smaller description, line-clamp for truncation */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handleClick(e); }} // Ensure button click is separate
+            className="mt-3 inline-flex items-center justify-center px-4 py-2 rounded-md text-white text-sm font-semibold tracking-wide
+                       bg-gradient-to-r from-blue-500 to-blue-700
+                       hover:from-blue-600 hover:to-blue-800
+                       shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
+          >
+            {affiliateUrl ? "View Course" : "Read More"}
+          </button>
         </div>
       </div>
     );
@@ -673,26 +734,26 @@ const ArticleCard = ({ article, onClick, variant = 'vertical' }) => {
 
   return (
     <div
-      onClick={onClick}
-      className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 cursor-pointer"
+      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+      onClick={handleClick} // Card click always triggers handleClick
     >
-      <img
-        src={article.image}
-        alt={article.title}
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-2">
-          {article.title}
-        </h3>
-        <p className="text-gray-600 text-sm line-clamp-3">
-          {article.description}
-        </p>
+      <img src={image} alt={title} className="w-full h-48 object-cover rounded-t-xl" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x250/CCCCCC/333333?text=Placeholder"; }}/>
+      <div className="p-4 flex flex-col justify-between h-48"> {/* Fixed height for better alignment in grid */}
+        <h3 className="text-xl font-bold text-gray-800 mb-2 font-space-grotesk">{title}</h3>
+        {description && <p className="text-gray-600 text-sm line-clamp-3">{description}</p>} {/* line-clamp added */}
+        <button
+          onClick={(e) => { e.stopPropagation(); handleClick(e); }} // Ensure button click is separate
+          className="mt-3 inline-flex items-center justify-center px-4 py-2 rounded-md text-white text-sm font-semibold tracking-wide
+                     bg-gradient-to-r from-blue-500 to-blue-700
+                     hover:from-blue-600 hover:to-blue-800
+                     shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
+        >
+          {affiliateUrl ? "View Course" : "Read More"}
+        </button>
       </div>
     </div>
   );
 };
-
 
 // Single Post Page Component (Dynamic)
 const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
