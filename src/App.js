@@ -172,7 +172,7 @@ const allArticlesData = getAllArticles(); // Used as static article data
 const authorData = {  'furkan-can-isci': {
     id: 'furkan-can-isci',
     name: 'Furkan Can İşci',
-    bio: 'Furkan Can İşci is a Senior Software Engineer with over 10 years of experience in full-stack web development, data science, and cloud architecture. He is passionate about simplifying complex technical concepts and helping aspiring developers kickstart their careers. Furkan has a strong background in Python, JavaScript, and various cloud platforms, and he enjoys sharing his insights on effective learning strategies and career growth in tech.',
+    bio: 'Furkan Can İşci is a Software Develper with over 4 years of experience in full-stack web development, data science. He is passionate about simplifying complex technical concepts and helping aspiring developers kickstart their careers. Furkan has a strong background in Python, JavaScript, and various cloud platforms, and he enjoys sharing his insights on effective learning strategies and career growth in tech.',
     image: 'https://placehold.co/150x150/E0E0E0/333333?text=Furkan+Can+İşci',
     // Filter articles that could be written by John Doe
     articles: allArticlesData.filter(article =>
@@ -798,8 +798,8 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
     );
   }
 
-  // Find the author of the article (Furkan Can İşci is the author of all static articles)
-  const articleAuthor = authorData['furkan-can-isci']; // Author of all articles is Furkan Can İşci
+  // Find the author of the article (for now, assuming John Doe is the author of all static articles)
+  const articleAuthor = authorData['john-doe']; // For now, author of all articles is assumed to be John Doe
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col lg:flex-row lg:space-x-8"> {/* Rounded corners and shadow */}
@@ -818,7 +818,12 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
   
 
         {/* Article Content - For now using description, but in real app, this would be full HTML/Markdown content */}
-       
+        <p className="text-lg leading-relaxed mb-6 text-gray-700"> {/* Text color adjusted */}
+          {article.description} 
+          <br/><br/>
+        </p>
+        
+
         {/* AdSense In-Article Ad Placeholder */}
   
 
