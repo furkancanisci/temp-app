@@ -13,12 +13,12 @@ const categoriesData = {
       "Curriculum Depth"
     ],
     featuredCourses: [
-      { id: "full-stack-web-dev-bootcamp-review", title: "Full-Stack Web Dev Bootcamp Review", description: "An in-depth look at a leading full-stack program.", image: "https://placehold.co/150x100/E0E0E0/333333?text=FS+Bootcamp", affiliateUrl: "https://example.com/bootcamp-affiliate-id-123" },
+      { id: "full-stack-web-dev-bootcamp-review", title: "Full-Stack Web Dev Bootcamp Review", description: "An in-depth look at a leading full-stack program, covering modern web technologies and practical projects.", image: "https://placehold.co/150x100/E0E0E0/333333?text=FS+Bootcamp", affiliateUrl: "https://example.com/bootcamp-affiliate-id-123" },
       { id: "data-science-bootcamp-deep-dive", title: "Data Science Bootcamp Deep Dive", description: "Analyzing the curriculum and outcomes of a popular data science bootcamp.", image: "https://placehold.co/150x100/D0D0D0/333333?text=DS+Bootcamp" },
       { id: "cybersecurity-bootcamp-analysis", title: "Cybersecurity Bootcamp Analysis", description: "A review of top cybersecurity bootcamps for beginners.", image: "https://placehold.co/150x100/C0C0C0/333333?text=Cyber+Bootcamp" }
     ],
     articles: [
-      { id: "is-a-coding-bootcamp-right-for-you", title: "Is a Coding Bootcamp Right for You?", description: "Pros and cons of intensive coding programs.", image: "https://placehold.co/150x100/B0B0B0/333333?text=Bootcamp+Fit" },
+      { id: "is-a-coding-bootcamp-right-for-you", title: "Is a Coding Bootcamp Right for You?", description: "Explore the pros and cons of coding bootcamps to determine if they align with your career goals.", image: "https://placehold.co/150x100/B0B0B0/333333?text=Bootcamp+Fit" },
       { id: "how-to-choose-the-best-bootcamp", title: "How to Choose the Best Bootcamp", description: "Factors to consider before enrolling in a bootcamp.", image: "https://placehold.co/150x100/A0A0A0/333333?text=Choose+Bootcamp" },
       { id: "bootcamp-vs-self-taught-which-path", title: "Bootcamp vs. Self-Taught: Which Path to Take?", description: "A comparison of two popular learning approaches.", image: "https://placehold.co/150x100/909090/333333?text=Bootcamp+vs+Self" }
     ]
@@ -34,7 +34,7 @@ const categoriesData = {
       "Community Support"
     ],
     featuredCourses: [
-      { id: "python-for-everybody-coursera-review", title: "Python for Everybody (Coursera) Review", description: "An in-depth look at a leading full-stack program.", image: "https://placehold.co/150x100/E0E0E0/333333?text=Python+Course", affiliateUrl: "https://www.coursera.org/specializations/python-for-everybody?action=enroll&affid=YOUR_COURSERA_AFFILIATE_ID" },
+      { id: "python-for-everybody-coursera-review", title: "Python for Everybody (Coursera) Review", description: "Master Python for data analysis and machine learning with hands-on projects and expert guidance.", image: "https://placehold.co/150x100/E0E0E0/333333?text=Python+Course", affiliateUrl: "https://www.coursera.org/specializations/python-for-everybody?action=enroll&affid=YOUR_COURSERA_AFFILIATE_ID" },
       { id: "full-stack-javascript-udemy-guide", title: "Full-Stack JavaScript (Udemy) Guide", description: "Mastering JavaScript from frontend to backend with this comprehensive Udemy course.", image: "https://placehold.co/150x100/D0D0D0/333333?text=JS+Course", affiliateUrl: "https://www.udemy.com/course/full-stack-javascript/?persist_locale=&affid=YOUR_UDEMY_AFFILIATE_ID" },
       { id: "sql-for-data-analysis-edx-insights", title: "SQL for Data Analysis (edX) Insights", description: "Gain essential SQL skills for data manipulation and analysis.", image: "https://placehold.co/150x100/C0C0C0/333333?text=SQL+Course" }
     ],
@@ -75,13 +75,13 @@ const categoriesData = {
       "Motivation & Resilience",
       "Diverse Backgrounds"
     ],
-    featuredCourses: [ // Bu kategori için featuredCourses yerine featuredStories olarak yeniden adlandırıldı
+    featuredCourses: [ // Bu kategori için featuredCourses yerine yeniden adlandırıldı
       { id: "from-teacher-to-software-engineer", title: "From Teacher to Software Engineer", description: "Sarah's journey from education to coding.", image: "https://placehold.co/150x100/E0E0E0/333333?text=Teacher+Story" },
       { id: "breaking-into-tech-at-40-plus", title: "Breaking Tech at 40+", description: "How Mark started a new tech career in his 40s.", image: "https://placehold.co/150x100/D0D0D0/333333?text=Age+Story" },
       { id: "self-taught-developers-path-to-google", title: "Self-Taught Developer's Path to Google", description: "The incredible story of a self-learner landing a dream job.", image: "https://placehold.co/150x100/C0C0C0/333333?text=Self+Taught" }
     ],
     articles: [
-      { id: "how-i-landed-my-first-tech-job-in-6-months", title: "How I Landed My First Tech Job in 6 Months", description: "A detailed account of a rapid career change.", image: "https://placehold.co/150x100/B0B0B0/333333?text=First+Job" },
+      { id: "how-i-landed-my-first-tech-job-in-6-months", title: "How I Landed My First Tech Job in 6 Months", description: "A detailed account of a rapid career change, highlighting challenges and strategies.", image: "https://placehold.co/150x100/B0B0B0/333333?text=First+Job" },
       { id: "the-power-of-networking-in-tech", title: "The Power of Networking in Tech", description: "Building connections for career growth.", image: "https://placehold.co/150x100/A0A0A0/333333?text=Networking" },
       { id: "interview-tips-from-a-faang-engineer", title: "Interview Tips from a FAANG Engineer", description: "Insights from a top tech company.", image: "https://placehold.co/150x100/909090/333333?text=FAANG+Tips" }
     ]
@@ -105,6 +105,48 @@ const categoriesData = {
       { id: "top-5-programming-languages-to-learn-in-2025", title: "Top 5 Programming Languages to Learn in 2025", description: "A look at the most in-demand languages.", image: "https://placehold.co/150x100/B0B0B0/333333?text=Top+Languages" },
       { id: "the-future-of-low-code-no-code-platforms", title: "Low-Code/No-Code Platforms: The Future of Development?", description: "Impact on traditional software development.", image: "https://placehold.co/150x100/A0A0A0/333333?text=LowCode" },
       { id: "demystifying-blockchain-for-developers", title: "Demystifying Blockchain for Developers", description: "A guide to understanding blockchain technology.", image: "https://placehold.co/150x100/909090/333333?text=Blockchain" }
+    ]
+  },
+  'ai-tech': {
+    title: "AI Technologies",
+    description: "Explore the latest advancements and applications of artificial intelligence across various industries. From machine learning algorithms to AI-powered tools and platforms.",
+    keyConcepts: [
+      "Machine Learning",
+      "Deep Learning",
+      "Natural Language Processing",
+      "AI Ethics",
+      "AI in Industry"
+    ],
+    featuredCourses: [
+      { id: "intro-to-machine-learning", title: "Introduction to Machine Learning", description: "Learn the basics of machine learning and how to apply them.", image: "https://placehold.co/150x100/E0E0E0/333333?text=ML+Course", affiliateUrl: "https://example.com/ml-course" },
+      { id: "deep-learning-specialization", title: "Deep Learning Specialization", description: "Master the foundations of deep learning and neural networks.", image: "https://placehold.co/150x100/D0D0D0/333333?text=DL+Specialization", affiliateUrl: "https://example.com/deep-learning-specialization" },
+      { id: "ai-for-everyone", title: "AI For Everyone", description: "Understand AI's impact on society and how to navigate the AI-powered future.", image: "https://placehold.co/150x100/C0C0C0/333333?text=AI+For+Everyone", affiliateUrl: "https://example.com/ai-for-everyone" }
+    ],
+    articles: [
+      { id: "what-is-ai-and-how-does-it-work", title: "What is AI and How Does it Work?", description: "A beginner's guide to understanding artificial intelligence.", image: "https://placehold.co/150x100/B0B0B0/333333?text=What+is+AI" },
+      { id: "machine-learning-vs-deep-learning", title: "Machine Learning vs Deep Learning: What's the Difference?", description: "Exploring the key differences and use cases.", image: "https://placehold.co/150x100/A0A0A0/333333?text=ML+vs+DL" },
+      { id: "the-future-of-ai-ethics", title: "The Future of AI: Opportunities and Ethical Challenges", description: "Navigating the ethical landscape of AI advancements.", image: "https://placehold.co/150x100/909090/333333?text=AI+Ethics" }
+    ]
+  },
+  'technology': {
+    title: "AI and Technology",
+    description: "Discover how AI is revolutionizing various tech domains, from data science to software development.",
+    keyConcepts: [
+      "AI in Data Science",
+      "Machine Learning Innovations",
+      "AI-Powered Development Tools",
+      "Ethical AI Use",
+      "Future Tech Trends"
+    ],
+    featuredCourses: [
+      { id: "ai-for-data-science", title: "AI for Data Science", description: "Leverage AI to enhance your data science skills.", image: "https://placehold.co/150x100/E0E0E0/333333?text=AI+Data+Science", affiliateUrl: "https://example.com/ai-for-data-science" },
+      { id: "machine-learning-advanced", title: "Advanced Machine Learning", description: "Deepen your machine learning knowledge with advanced techniques.", image: "https://placehold.co/150x100/D0D0D0/333333?text=Adv+ML", affiliateUrl: "https://example.com/advanced-machine-learning" },
+      { id: "ethical-ai-development", title: "Ethical AI Development", description: "Understand the ethical implications of AI in tech.", image: "https://placehold.co/150x100/C0C0C0/333333?text=Ethical+AI+Dev", affiliateUrl: "https://example.com/ethical-ai-development" }
+    ],
+    articles: [
+      { id: "ai-impact-on-tech-careers", title: "The Impact of AI on Tech Careers", description: "How AI is changing job roles in technology.", image: "https://placehold.co/150x100/B0B0B0/333333?text=AI+Impact+Tech" },
+      { id: "top-ai-tools-for-developers", title: "Top AI Tools for Developers", description: "Essential AI tools every developer should know.", image: "https://placehold.co/150x100/A0A0A0/333333?text=AI+Tools+Dev" },
+      { id: "future-of-ai-in-software-development", title: "The Future of AI in Software Development", description: "Predictions and trends for AI in software engineering.", image: "https://placehold.co/150x100/909090/333333?text=Future+of+AI+Dev" }
     ]
   },
   // More categories can be added as needed
@@ -777,9 +819,7 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
 
         {/* Article Content - For now using description, but in real app, this would be full HTML/Markdown content */}
         <p className="text-lg leading-relaxed mb-6 text-gray-700"> {/* Text color adjusted */}
-          {article.description} This is the detailed content of the article titled "{article.title}". In a real application, this section could contain the full, rich text of the blog post, potentially loaded from a Markdown file or a database.
-          <br/><br/>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {article.description} This article delves into the intricacies of the topic, providing readers with a thorough understanding and practical takeaways. It explores key concepts, challenges, and solutions, making it a valuable resource for anyone looking to deepen their knowledge and apply it effectively in real-world scenarios.
           <br/><br/>
           This section can contain code snippets, images, videos, and more.
         </p>
@@ -1239,7 +1279,7 @@ const AuthorProfilePage = ({ authorId, setCurrentPage }) => {
 
     return (
         <div className="bg-white p-8 rounded-xl shadow-lg"> {/* Rounded corners and shadow */}
-            <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 mb-8">
+            <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-4 mb-8">
                 <img
                     src={author.image}
                     alt={author.name}
@@ -1252,7 +1292,7 @@ const AuthorProfilePage = ({ authorId, setCurrentPage }) => {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-8 font-space-grotesk">{author.name}'s Articles</h2>
-            {author.articles.length > 0 ? (
+            {author.articles.length >  0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {author.articles.map((article, index) => (
                         <ArticleCard
@@ -2412,7 +2452,6 @@ const AdminPanelPage = ({ setCurrentPage }) => {
   );
 };
 
-
 // All Articles Page Component (Newly added)
 const ArticleListPage = ({ articles, setCurrentPage }) => {
   const [currentPageNum, setCurrentPageNum] = useState(1);
@@ -2460,5 +2499,13 @@ const ArticleListPage = ({ articles, setCurrentPage }) => {
   );
 };
 
+// Adding the new article to the articlesData array
+allArticlesData.push({
+  id: "ai-transforming-data-center-energy", // Unique ID for the article
+  title: "AI is Transforming Data Center Energy Consumption: New Generation Smart Cooling Systems Undergo Global Tests",
+  description: "As global digitalization continues its unceasing pace, data center energy consumption is becoming an increasingly critical issue in terms of environmental sustainability and operational costs. The cooling of these centers, in particular, constitutes a significant portion of their total energy expenditure. However, recent developments indicate that artificial intelligence (AI) is offering revolutionary solutions in this domain. Pilot projects and large-scale tests conducted over the past few years have demonstrated that AI-powered smart cooling systems can dramatically reduce the energy footprint of data centers. Unlike traditional fixed-setting cooling solutions, these next-generation systems utilize machine learning algorithms to analyze real-time data, including server load, internal/external temperatures, humidity, and even energy prices. Based on this analysis, AI precisely predicts the data center's optimal cooling needs and dynamically adjusts cooling systems. Industry analysts predict that AI-based smart cooling systems will become a standard component of data centers within the next 5 years.",
+  image: "https://example.com/ai-data-center-cooling.jpg", // Replace with actual image URL
+  categoryId: "technology" // Assuming "technology" is a valid category ID
+});
 
 export default App;
