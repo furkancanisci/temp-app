@@ -799,7 +799,7 @@ const SinglePostPage = ({ categoryId, articleId, setCurrentPage }) => {
   }
 
   // Find the author of the article (for now, assuming John Doe is the author of all static articles)
-  const articleAuthor = authorData['john-doe']; // For now, author of all articles is assumed to be John Doe
+  const articleAuthor = authorData['furkan-can-isci']; // For now, author of all articles is assumed to be John Doe
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col lg:flex-row lg:space-x-8"> {/* Rounded corners and shadow */}
